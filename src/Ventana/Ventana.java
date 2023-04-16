@@ -5,17 +5,18 @@
  */
 package Ventana;
 
+import static java.awt.Color.black;
+import static java.awt.Color.white;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MarcoVilera
  */
 public class Ventana extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Ventana
-     */
+    int xMouse, yMouse;
     public Ventana() {
-        setTitle("Evaluación 2 Algoritmos y Estructuras");
         initComponents();
     }
 
@@ -28,129 +29,301 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        valueN = new javax.swing.JTextField();
-        valueM = new javax.swing.JTextField();
-        calcButton = new javax.swing.JButton();
-        clrButton = new javax.swing.JButton();
-        nLabel = new javax.swing.JLabel();
+        bg = new javax.swing.JPanel();
+        header = new javax.swing.JPanel();
+        titlewind = new javax.swing.JLabel();
+        entryLabel = new javax.swing.JLabel();
         mLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        nLabel = new javax.swing.JLabel();
+        nEntry = new javax.swing.JTextField();
+        separatorN = new javax.swing.JSeparator();
+        mEntry = new javax.swing.JTextField();
+        separatorM = new javax.swing.JSeparator();
+        calcBtn = new javax.swing.JPanel();
+        calcLabel = new javax.swing.JLabel();
+        clrBtn = new javax.swing.JPanel();
+        clrLabel = new javax.swing.JLabel();
+        opLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(836, 545));
+        setResizable(false);
 
-        valueN.addActionListener(new java.awt.event.ActionListener() {
+        bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        header.setBackground(new java.awt.Color(0, 150, 136));
+
+        titlewind.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        titlewind.setForeground(new java.awt.Color(255, 255, 255));
+        titlewind.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titlewind.setText("Evaluación 2 Algoritmos y Estructuras");
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 860, Short.MAX_VALUE)
+            .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(titlewind, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE))
+        );
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(titlewind, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+        );
+
+        bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 70));
+
+        entryLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        entryLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        entryLabel.setText("Entrada de Datos");
+        bg.add(entryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 860, -1));
+
+        mLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        mLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mLabel.setText("Valor M");
+        bg.add(mLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 140, -1));
+
+        nLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        nLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nLabel.setText("Valor N ");
+        bg.add(nLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 140, -1));
+
+        nEntry.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        nEntry.setForeground(new java.awt.Color(153, 153, 153));
+        nEntry.setText("Introduce el valor de N");
+        nEntry.setBorder(null);
+        nEntry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                nEntryMousePressed(evt);
+            }
+        });
+        nEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valueNActionPerformed(evt);
+                nEntryActionPerformed(evt);
+            }
+        });
+        bg.add(nEntry, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 140, 30));
+
+        separatorN.setForeground(new java.awt.Color(0, 0, 0));
+        bg.add(separatorN, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 140, 20));
+
+        mEntry.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        mEntry.setForeground(new java.awt.Color(153, 153, 153));
+        mEntry.setText("Introduce el valor de M");
+        mEntry.setBorder(null);
+        mEntry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                mEntryMousePressed(evt);
+            }
+        });
+        mEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mEntryActionPerformed(evt);
+            }
+        });
+        bg.add(mEntry, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 140, 30));
+
+        separatorM.setForeground(new java.awt.Color(0, 0, 0));
+        bg.add(separatorM, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 140, 20));
+
+        calcBtn.setBackground(new java.awt.Color(0, 150, 136));
+        calcBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        calcLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        calcLabel.setForeground(new java.awt.Color(255, 255, 255));
+        calcLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        calcLabel.setText("Calcular");
+        calcLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                calcLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                calcLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                calcLabelMouseExited(evt);
             }
         });
 
-        calcButton.setText("Calcular");
-        calcButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calcButtonActionPerformed(evt);
+        javax.swing.GroupLayout calcBtnLayout = new javax.swing.GroupLayout(calcBtn);
+        calcBtn.setLayout(calcBtnLayout);
+        calcBtnLayout.setHorizontalGroup(
+            calcBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(calcLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        );
+        calcBtnLayout.setVerticalGroup(
+            calcBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, calcBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(calcLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(calcBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 110, 30));
+
+        clrBtn.setBackground(new java.awt.Color(0, 150, 136));
+        clrBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        clrLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        clrLabel.setForeground(new java.awt.Color(255, 255, 255));
+        clrLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clrLabel.setText("Limpiar");
+        clrLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clrLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clrLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clrLabelMouseExited(evt);
             }
         });
 
-        clrButton.setText("Limpiar");
+        javax.swing.GroupLayout clrBtnLayout = new javax.swing.GroupLayout(clrBtn);
+        clrBtn.setLayout(clrBtnLayout);
+        clrBtnLayout.setHorizontalGroup(
+            clrBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+            .addGroup(clrBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(clrLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+        );
+        clrBtnLayout.setVerticalGroup(
+            clrBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(clrBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(clrLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+        );
 
-        nLabel.setText("Introduce el valor de N");
+        bg.add(clrBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 120, 30));
 
-        mLabel.setText("Introduce el valor de M");
-
-        jLabel1.setText("jLabel1");
-
-        jLabel2.setText("jLabel2");
-
-        jLabel3.setText("jLabel3");
-
-        jLabel4.setText("jLabel4");
+        opLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        opLabel.setForeground(new java.awt.Color(255, 255, 255));
+        opLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        opLabel.setText("Operaciones");
+        bg.add(opLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 860, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(valueN)
-                            .addComponent(nLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(27, 27, 27)
-                        .addComponent(calcButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(clrButton))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(valueM, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(nLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(valueN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(calcButton)
-                    .addComponent(clrButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valueM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addContainerGap(66, Short.MAX_VALUE))
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void calcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcButtonActionPerformed
+    private void nEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nEntryActionPerformed
         // TODO add your handling code here:
-        int x=5;
-        int m=509;
-        int n = -15; // Elegimos el valor de n para prueba
-        if (n < 0) {
-            n = n * -1;
-       
-        }
-        int[] vector= new int[n];
-        System.out.println("Secuencia de Fibonacci hasta " + n + ":");
-        for (int i = 0; i <=n; i++) {
-            if (OperacionesVentana.fibonacci(i) <= n) {
-                vector[i]=OperacionesVentana.fibonacci(i);
-                //System.out.print(OperacionesVentana.fibonacci(i) + " ");
-                System.out.print(vector[i]+" ");
-            }
-            
-        }
-        System.out.println("");
-        if(OperacionesVentana.nPrim(m)){
-            System.out.println(m + " es primo");
-        }else{
-            System.out.println(m + " no es primo");
-        }
-        System.out.println(OperacionesVentana.sumDigit(x));
-    }//GEN-LAST:event_calcButtonActionPerformed
+    }//GEN-LAST:event_nEntryActionPerformed
 
-    private void valueNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valueNActionPerformed
+    private void mEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mEntryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_valueNActionPerformed
+    }//GEN-LAST:event_mEntryActionPerformed
+    //Botón Calcular
+    private void calcLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcLabelMouseEntered
+        calcBtn.setBackground(new java.awt.Color(0, 105, 92));
+    }//GEN-LAST:event_calcLabelMouseEntered
+
+    private void calcLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcLabelMouseExited
+        calcBtn.setBackground(new java.awt.Color(0, 150, 136));
+    }//GEN-LAST:event_calcLabelMouseExited
+    int NMAXIMO = 100;
+    int NMIN = -100;
+    private void calcLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcLabelMouseClicked
+        int n = 0;
+        int m = 0;
+        try {
+            n = Integer.parseInt(nEntry.getText());
+        } catch (NumberFormatException errorEntry) {
+            JOptionPane.showMessageDialog(null, "Valor N Invalido, introduzca un valor númerico");
+            nEntry.setText("Introduce el valor de N");
+            nEntry.setForeground(new java.awt.Color(153, 153, 153));
+        }
+
+        try {
+            m = Integer.parseInt(mEntry.getText());
+        } catch (NumberFormatException errorEntry) {
+            JOptionPane.showMessageDialog(null, "Valor M Invalido, introduzca un valor númerico");
+            mEntry.setText("Introduce el valor de M");
+            mEntry.setForeground(new java.awt.Color(153, 153, 153));
+        }
+
+        try {
+            if (n <= NMIN || n >= NMAXIMO) {
+                throw new NumException();
+            }
+        } catch (NumException nmInvalid) {
+            JOptionPane.showMessageDialog(null, "Valor N Invalido, Introduzca un número entre -99 y 99");
+            nEntry.setText("Introduce el valor de N");
+            nEntry.setForeground(new java.awt.Color(153, 153, 153));
+        }
+
+        try {
+            if (m <= NMIN || m >= NMAXIMO) {
+                throw new NumException();
+            }
+        } catch (NumException nmInvalid) {
+            JOptionPane.showMessageDialog(null, "Valor M Invalido, Introduzca un número entre -99 y 99");
+            mEntry.setText("Introduce el valor de M");
+            mEntry.setForeground(new java.awt.Color(153, 153, 153));
+        }
+        opLabel.setForeground(black);
+
+    }//GEN-LAST:event_calcLabelMouseClicked
+    //Fin Botón Calcular
+
+    //Botón Limpiar
+    private void clrLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clrLabelMouseEntered
+        clrBtn.setBackground(new java.awt.Color(0, 105, 92));
+    }//GEN-LAST:event_clrLabelMouseEntered
+
+    private void clrLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clrLabelMouseExited
+        clrBtn.setBackground(new java.awt.Color(0, 150, 136));
+    }//GEN-LAST:event_clrLabelMouseExited
+
+    private void clrLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clrLabelMouseClicked
+        opLabel.setForeground(white);
+        nEntry.setText("Introduce el valor de N");
+        nEntry.setForeground(new java.awt.Color(153, 153, 153));
+        mEntry.setText("Introduce el valor de M");
+        mEntry.setForeground(new java.awt.Color(153, 153, 153));
+    }//GEN-LAST:event_clrLabelMouseClicked
+    //Fin Botón Limpiar
+
+    private void nEntryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nEntryMousePressed
+        if (nEntry.getText().equals("Introduce el valor de N")) {
+            nEntry.setText("");
+            nEntry.setForeground(black);
+        }
+        if (mEntry.getText().isEmpty()) {
+            mEntry.setText("Introduce el valor de M");
+            mEntry.setForeground(new java.awt.Color(153, 153, 153));
+        }
+
+    }//GEN-LAST:event_nEntryMousePressed
+
+    private void mEntryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mEntryMousePressed
+
+        if (mEntry.getText().equals("Introduce el valor de M")) {
+            mEntry.setText("");
+            mEntry.setForeground(black);
+        }
+
+        if (nEntry.getText().isEmpty()) {
+            nEntry.setText("Introduce el valor de N");
+            nEntry.setForeground(new java.awt.Color(153, 153, 153));
+        }
+
+    }//GEN-LAST:event_mEntryMousePressed
 
     /**
      * @param args the command line arguments
@@ -188,15 +361,20 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton calcButton;
-    private javax.swing.JButton clrButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel bg;
+    private javax.swing.JPanel calcBtn;
+    private javax.swing.JLabel calcLabel;
+    private javax.swing.JPanel clrBtn;
+    private javax.swing.JLabel clrLabel;
+    private javax.swing.JLabel entryLabel;
+    private javax.swing.JPanel header;
+    private javax.swing.JTextField mEntry;
     private javax.swing.JLabel mLabel;
+    private javax.swing.JTextField nEntry;
     private javax.swing.JLabel nLabel;
-    private javax.swing.JTextField valueM;
-    private javax.swing.JTextField valueN;
+    private javax.swing.JLabel opLabel;
+    private javax.swing.JSeparator separatorM;
+    private javax.swing.JSeparator separatorN;
+    private javax.swing.JLabel titlewind;
     // End of variables declaration//GEN-END:variables
 }
