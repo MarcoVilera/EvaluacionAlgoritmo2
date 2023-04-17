@@ -7,6 +7,8 @@ package Ventana;
 
 import static java.awt.Color.black;
 import static java.awt.Color.white;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,9 +17,10 @@ import javax.swing.JOptionPane;
  */
 public class Ventana extends javax.swing.JFrame {
 
-    int xMouse, yMouse;
     public Ventana() {
         initComponents();
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -44,14 +47,33 @@ public class Ventana extends javax.swing.JFrame {
         clrBtn = new javax.swing.JPanel();
         clrLabel = new javax.swing.JLabel();
         opLabel = new javax.swing.JLabel();
+        dotOp1 = new javax.swing.JLabel();
+        op1Display = new javax.swing.JLabel();
+        shownOp1 = new javax.swing.JLabel();
+        dotOp2 = new javax.swing.JLabel();
+        op2Display = new javax.swing.JLabel();
+        scrollOp2 = new javax.swing.JScrollPane();
+        shownOp2 = new javax.swing.JTextArea();
+        dotOp3 = new javax.swing.JLabel();
+        op3Display = new javax.swing.JLabel();
+        scrollOp3 = new javax.swing.JScrollPane();
+        shownOp3 = new javax.swing.JTextArea();
+        dotOp4 = new javax.swing.JLabel();
+        op4Display = new javax.swing.JLabel();
+        scrollOp4 = new javax.swing.JScrollPane();
+        shownOp4 = new javax.swing.JTextArea();
+        dotOp5 = new javax.swing.JLabel();
+        op5Display = new javax.swing.JLabel();
+        shownOp5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(836, 545));
+        setPreferredSize(new java.awt.Dimension(860, 640));
         setResizable(false);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setPreferredSize(new java.awt.Dimension(860, 680));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         header.setBackground(new java.awt.Color(0, 150, 136));
@@ -201,21 +223,114 @@ public class Ventana extends javax.swing.JFrame {
 
         bg.add(clrBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 120, 30));
 
+        opLabel.setBackground(new java.awt.Color(255, 255, 255));
         opLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         opLabel.setForeground(new java.awt.Color(255, 255, 255));
         opLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         opLabel.setText("Operaciones");
         bg.add(opLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 860, -1));
 
+        dotOp1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        dotOp1.setForeground(new java.awt.Color(255, 255, 255));
+        dotOp1.setText("•");
+        bg.add(dotOp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+
+        op1Display.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        op1Display.setForeground(new java.awt.Color(255, 255, 255));
+        op1Display.setText("Comprobar si M es un número primo:");
+        bg.add(op1Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+
+        shownOp1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bg.add(shownOp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
+
+        dotOp2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        dotOp2.setForeground(new java.awt.Color(255, 255, 255));
+        dotOp2.setText("•");
+        bg.add(dotOp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+
+        op2Display.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        op2Display.setForeground(new java.awt.Color(255, 255, 255));
+        op2Display.setText("Potencia N^M:");
+        bg.add(op2Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+
+        scrollOp2.setBorder(null);
+
+        shownOp2.setEditable(false);
+        shownOp2.setColumns(20);
+        shownOp2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        shownOp2.setLineWrap(true);
+        shownOp2.setRows(1);
+        shownOp2.setBorder(null);
+        scrollOp2.setViewportView(shownOp2);
+
+        bg.add(scrollOp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 570, 40));
+
+        dotOp3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        dotOp3.setForeground(new java.awt.Color(255, 255, 255));
+        dotOp3.setText("•");
+        bg.add(dotOp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+
+        op3Display.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        op3Display.setForeground(new java.awt.Color(255, 255, 255));
+        op3Display.setText("Sucesión de Fibonacci hasta NxM:");
+        bg.add(op3Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
+
+        scrollOp3.setBorder(null);
+
+        shownOp3.setEditable(false);
+        shownOp3.setColumns(20);
+        shownOp3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        shownOp3.setLineWrap(true);
+        shownOp3.setRows(1);
+        shownOp3.setBorder(null);
+        scrollOp3.setViewportView(shownOp3);
+
+        bg.add(scrollOp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 570, 40));
+
+        dotOp4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        dotOp4.setForeground(new java.awt.Color(255, 255, 255));
+        dotOp4.setText("•");
+        bg.add(dotOp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, -1));
+
+        op4Display.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        op4Display.setForeground(new java.awt.Color(255, 255, 255));
+        op4Display.setText("Factorial de N:");
+        bg.add(op4Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, -1, -1));
+
+        scrollOp4.setBorder(null);
+
+        shownOp4.setEditable(false);
+        shownOp4.setColumns(20);
+        shownOp4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        shownOp4.setLineWrap(true);
+        shownOp4.setRows(1);
+        shownOp4.setBorder(null);
+        scrollOp4.setViewportView(shownOp4);
+
+        bg.add(scrollOp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 570, 40));
+
+        dotOp5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        dotOp5.setForeground(new java.awt.Color(255, 255, 255));
+        dotOp5.setText("•");
+        bg.add(dotOp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
+
+        op5Display.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        op5Display.setForeground(new java.awt.Color(255, 255, 255));
+        op5Display.setText("Suma de los digitos NxM:");
+        bg.add(op5Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, -1, -1));
+
+        shownOp5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bg.add(shownOp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         pack();
@@ -239,14 +354,20 @@ public class Ventana extends javax.swing.JFrame {
     int NMAXIMO = 100;
     int NMIN = -100;
     private void calcLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcLabelMouseClicked
+
         int n = 0;
         int m = 0;
+        BigDecimal nd;
+        BigInteger nnd;
+
+        boolean fail = false;
         try {
             n = Integer.parseInt(nEntry.getText());
         } catch (NumberFormatException errorEntry) {
             JOptionPane.showMessageDialog(null, "Valor N Invalido, introduzca un valor númerico");
             nEntry.setText("Introduce el valor de N");
             nEntry.setForeground(new java.awt.Color(153, 153, 153));
+            fail = true;
         }
 
         try {
@@ -255,6 +376,7 @@ public class Ventana extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Valor M Invalido, introduzca un valor númerico");
             mEntry.setText("Introduce el valor de M");
             mEntry.setForeground(new java.awt.Color(153, 153, 153));
+            fail = true;
         }
 
         try {
@@ -265,6 +387,7 @@ public class Ventana extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Valor N Invalido, Introduzca un número entre -99 y 99");
             nEntry.setText("Introduce el valor de N");
             nEntry.setForeground(new java.awt.Color(153, 153, 153));
+            fail = true;
         }
 
         try {
@@ -275,8 +398,56 @@ public class Ventana extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Valor M Invalido, Introduzca un número entre -99 y 99");
             mEntry.setText("Introduce el valor de M");
             mEntry.setForeground(new java.awt.Color(153, 153, 153));
+            fail = true;
         }
-        opLabel.setForeground(black);
+        nd = BigDecimal.valueOf(n);
+        nnd = BigInteger.valueOf(n);
+        int nm = n * m;
+        if (nm < 0) {
+            nm = nm * -1;
+        }
+        //Condicional de mostrar efectuar/operaciones
+        if (fail == false) {
+
+            opLabel.setForeground(black);
+            dotOp1.setForeground(new java.awt.Color(0, 77, 64));
+            dotOp2.setForeground(new java.awt.Color(0, 77, 64));
+            dotOp3.setForeground(new java.awt.Color(0, 77, 64));
+            dotOp4.setForeground(new java.awt.Color(0, 77, 64));
+            dotOp5.setForeground(new java.awt.Color(0, 77, 64));
+            op1Display.setForeground(black);
+            op2Display.setForeground(black);
+            op3Display.setForeground(black);
+            op4Display.setForeground(black);
+            op5Display.setForeground(black);
+
+            //Condicional Operación 1
+            if (OperacionesVentana.nPrim(m)) {
+                shownOp1.setForeground(black);
+                shownOp1.setText("El número " + m + " es primo");
+            } else if (OperacionesVentana.nPrim(m) == false && m < 0) {
+                shownOp1.setForeground(black);
+                shownOp1.setText("Los números negativos no pueden ser primos");
+            } else {
+                shownOp1.setForeground(black);
+                shownOp1.setText("El número " + m + " no es primo");
+            }
+            //Operacion2
+            shownOp2.setForeground(black);
+            shownOp2.setText(OperacionesVentana.potRecur(nd, m).toString());
+            //Operacion3
+            //Operación4
+            if (n < 0) {
+                shownOp4.setForeground(black);
+                shownOp4.setText("No se puede obtener el factorial de un número negativo");
+            } else {
+                shownOp4.setForeground(black);
+                shownOp4.setText(OperacionesVentana.factoRecur(nnd).toString());
+            }
+            //Operación5
+            shownOp5.setForeground(black);
+            shownOp5.setText(Integer.toString(nm) + "=" + Integer.toString(OperacionesVentana.sumDigit(nm)));
+        }
 
     }//GEN-LAST:event_calcLabelMouseClicked
     //Fin Botón Calcular
@@ -292,6 +463,25 @@ public class Ventana extends javax.swing.JFrame {
 
     private void clrLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clrLabelMouseClicked
         opLabel.setForeground(white);
+
+        dotOp1.setForeground(white);
+        dotOp2.setForeground(white);
+        dotOp3.setForeground(white);
+        dotOp4.setForeground(white);
+        dotOp5.setForeground(white);
+
+        op1Display.setForeground(white);
+        op2Display.setForeground(white);
+        op3Display.setForeground(white);
+        op4Display.setForeground(white);
+        op5Display.setForeground(white);
+
+        shownOp1.setText("");
+        shownOp2.setText("");
+        shownOp3.setText("");
+        shownOp4.setText("");
+        shownOp5.setText("");
+
         nEntry.setText("Introduce el valor de N");
         nEntry.setForeground(new java.awt.Color(153, 153, 153));
         mEntry.setText("Introduce el valor de M");
@@ -336,7 +526,7 @@ public class Ventana extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -366,15 +556,33 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel calcLabel;
     private javax.swing.JPanel clrBtn;
     private javax.swing.JLabel clrLabel;
+    private javax.swing.JLabel dotOp1;
+    private javax.swing.JLabel dotOp2;
+    private javax.swing.JLabel dotOp3;
+    private javax.swing.JLabel dotOp4;
+    private javax.swing.JLabel dotOp5;
     private javax.swing.JLabel entryLabel;
     private javax.swing.JPanel header;
     private javax.swing.JTextField mEntry;
     private javax.swing.JLabel mLabel;
     private javax.swing.JTextField nEntry;
     private javax.swing.JLabel nLabel;
+    private javax.swing.JLabel op1Display;
+    private javax.swing.JLabel op2Display;
+    private javax.swing.JLabel op3Display;
+    private javax.swing.JLabel op4Display;
+    private javax.swing.JLabel op5Display;
     private javax.swing.JLabel opLabel;
+    private javax.swing.JScrollPane scrollOp2;
+    private javax.swing.JScrollPane scrollOp3;
+    private javax.swing.JScrollPane scrollOp4;
     private javax.swing.JSeparator separatorM;
     private javax.swing.JSeparator separatorN;
+    private javax.swing.JLabel shownOp1;
+    private javax.swing.JTextArea shownOp2;
+    private javax.swing.JTextArea shownOp3;
+    private javax.swing.JTextArea shownOp4;
+    private javax.swing.JLabel shownOp5;
     private javax.swing.JLabel titlewind;
     // End of variables declaration//GEN-END:variables
 }
