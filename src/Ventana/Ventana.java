@@ -1,26 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventana;
 
 import static java.awt.Color.black;
 import static java.awt.Color.white;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author MarcoVilera
- */
+//@author MarcoVilera
 public class Ventana extends javax.swing.JFrame {
 
     public Ventana() {
         initComponents();
         this.setLocationRelativeTo(null);
-
     }
 
     /**
@@ -272,7 +265,7 @@ public class Ventana extends javax.swing.JFrame {
 
         op3Display.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         op3Display.setForeground(new java.awt.Color(255, 255, 255));
-        op3Display.setText("Sucesión de Fibonacci hasta NxM:");
+        op3Display.setText("Sucesión de Fibonacci hasta que sea <=NxM:");
         bg.add(op3Display, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
 
         scrollOp3.setBorder(null);
@@ -285,7 +278,7 @@ public class Ventana extends javax.swing.JFrame {
         shownOp3.setBorder(null);
         scrollOp3.setViewportView(shownOp3);
 
-        bg.add(scrollOp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 570, 40));
+        bg.add(scrollOp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 490, 40));
 
         dotOp4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         dotOp4.setForeground(new java.awt.Color(255, 255, 255));
@@ -345,22 +338,27 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_mEntryActionPerformed
     //Botón Calcular
     private void calcLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcLabelMouseEntered
+        //Cambia de color cuando el mouse entra a botón
         calcBtn.setBackground(new java.awt.Color(0, 105, 92));
     }//GEN-LAST:event_calcLabelMouseEntered
 
     private void calcLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcLabelMouseExited
+        //Cambia de color cuando el mouse sale del botón
         calcBtn.setBackground(new java.awt.Color(0, 150, 136));
     }//GEN-LAST:event_calcLabelMouseExited
+
     int NMAXIMO = 100;
     int NMIN = -100;
-    private void calcLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcLabelMouseClicked
 
+    private void calcLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcLabelMouseClicked
+        //Acciones cuando se presiona el botón "Calcular"
         int n = 0;
         int m = 0;
         BigDecimal nd;
         BigInteger nnd;
-
         boolean fail = false;
+
+        //Excepción en caso de valor N no sea un entero
         try {
             n = Integer.parseInt(nEntry.getText());
         } catch (NumberFormatException errorEntry) {
@@ -370,6 +368,7 @@ public class Ventana extends javax.swing.JFrame {
             fail = true;
         }
 
+        //Excepción en caso de valor M no sea un entero
         try {
             m = Integer.parseInt(mEntry.getText());
         } catch (NumberFormatException errorEntry) {
@@ -379,6 +378,7 @@ public class Ventana extends javax.swing.JFrame {
             fail = true;
         }
 
+        //Excepción en caso de valor N se menor a -99 o mayor a 99
         try {
             if (n <= NMIN || n >= NMAXIMO) {
                 throw new NumException();
@@ -390,6 +390,7 @@ public class Ventana extends javax.swing.JFrame {
             fail = true;
         }
 
+        //Excepción en caso de valor M se menor a -99 o mayor a 99
         try {
             if (m <= NMIN || m >= NMAXIMO) {
                 throw new NumException();
@@ -400,6 +401,7 @@ public class Ventana extends javax.swing.JFrame {
             mEntry.setForeground(new java.awt.Color(153, 153, 153));
             fail = true;
         }
+
         nd = BigDecimal.valueOf(n);
         nnd = BigInteger.valueOf(n);
         int nm = n * m;
@@ -408,20 +410,13 @@ public class Ventana extends javax.swing.JFrame {
         }
         //Condicional de mostrar efectuar/operaciones
         if (fail == false) {
-
+            //Titulo Operaciones
             opLabel.setForeground(black);
-            dotOp1.setForeground(new java.awt.Color(0, 77, 64));
-            dotOp2.setForeground(new java.awt.Color(0, 77, 64));
-            dotOp3.setForeground(new java.awt.Color(0, 77, 64));
-            dotOp4.setForeground(new java.awt.Color(0, 77, 64));
-            dotOp5.setForeground(new java.awt.Color(0, 77, 64));
-            op1Display.setForeground(black);
-            op2Display.setForeground(black);
-            op3Display.setForeground(black);
-            op4Display.setForeground(black);
-            op5Display.setForeground(black);
 
-            //Condicional Operación 1
+            //Operación 1
+            dotOp1.setForeground(new java.awt.Color(0, 77, 64));
+            op1Display.setForeground(black);
+
             if (OperacionesVentana.nPrim(m)) {
                 shownOp1.setForeground(black);
                 shownOp1.setText("El número " + m + " es primo");
@@ -432,11 +427,26 @@ public class Ventana extends javax.swing.JFrame {
                 shownOp1.setForeground(black);
                 shownOp1.setText("El número " + m + " no es primo");
             }
-            //Operacion2
+
+            //Operación 2
+            dotOp2.setForeground(new java.awt.Color(0, 77, 64));
+            op2Display.setForeground(black);
             shownOp2.setForeground(black);
             shownOp2.setText(OperacionesVentana.potRecur(nd, m).toString());
-            //Operacion3
-            //Operación4
+
+            //Operación 3
+            dotOp3.setForeground(new java.awt.Color(0, 77, 64));
+            op3Display.setForeground(black);
+            ArrayList<Integer> vector = new ArrayList<>();
+            OperacionesVentana.fibonacciRecur(nm, vector, 0);
+            shownOp3.setForeground(black);
+            String text;
+            text = OperacionesVentana.vectorToString(vector);
+            shownOp3.setText(text);
+
+            //Operación 4
+            dotOp4.setForeground(new java.awt.Color(0, 77, 64));
+            op4Display.setForeground(black);
             if (n < 0) {
                 shownOp4.setForeground(black);
                 shownOp4.setText("No se puede obtener el factorial de un número negativo");
@@ -444,7 +454,10 @@ public class Ventana extends javax.swing.JFrame {
                 shownOp4.setForeground(black);
                 shownOp4.setText(OperacionesVentana.factoRecur(nnd).toString());
             }
-            //Operación5
+
+            //Operación 5
+            dotOp5.setForeground(new java.awt.Color(0, 77, 64));
+            op5Display.setForeground(black);
             shownOp5.setForeground(black);
             shownOp5.setText(Integer.toString(nm) + "=" + Integer.toString(OperacionesVentana.sumDigit(nm)));
         }
@@ -462,34 +475,46 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_clrLabelMouseExited
 
     private void clrLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clrLabelMouseClicked
+        //Titulo Operaciones
         opLabel.setForeground(white);
 
+        //Operación 1
         dotOp1.setForeground(white);
-        dotOp2.setForeground(white);
-        dotOp3.setForeground(white);
-        dotOp4.setForeground(white);
-        dotOp5.setForeground(white);
-
         op1Display.setForeground(white);
-        op2Display.setForeground(white);
-        op3Display.setForeground(white);
-        op4Display.setForeground(white);
-        op5Display.setForeground(white);
-
         shownOp1.setText("");
+
+        //Operación 2
+        dotOp2.setForeground(white);
+        op2Display.setForeground(white);
         shownOp2.setText("");
+
+        //Operación 3
+        dotOp3.setForeground(white);
+        op3Display.setForeground(white);
         shownOp3.setText("");
+
+        //Operación 4
+        dotOp4.setForeground(white);
+        op4Display.setForeground(white);
         shownOp4.setText("");
+
+        //Operación 5
+        dotOp5.setForeground(white);
+        op5Display.setForeground(white);
         shownOp5.setText("");
 
+        //Entrada de texto de N
         nEntry.setText("Introduce el valor de N");
         nEntry.setForeground(new java.awt.Color(153, 153, 153));
+
+        //Entrada de texto de M
         mEntry.setText("Introduce el valor de M");
         mEntry.setForeground(new java.awt.Color(153, 153, 153));
     }//GEN-LAST:event_clrLabelMouseClicked
     //Fin Botón Limpiar
 
     private void nEntryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nEntryMousePressed
+        
         if (nEntry.getText().equals("Introduce el valor de N")) {
             nEntry.setText("");
             nEntry.setForeground(black);
@@ -515,9 +540,7 @@ public class Ventana extends javax.swing.JFrame {
 
     }//GEN-LAST:event_mEntryMousePressed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
