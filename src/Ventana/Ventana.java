@@ -348,7 +348,7 @@ public class Ventana extends javax.swing.JFrame {
         //Cambia de color cuando el mouse sale del botón
         calcBtn.setBackground(new java.awt.Color(0, 150, 136));
     }//GEN-LAST:event_calcLabelMouseExited
-
+    //Valores Maximos y Minimos
     int NMAXIMO = 100;
     int NMIN = -100;
 
