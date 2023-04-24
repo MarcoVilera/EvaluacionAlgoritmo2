@@ -62,7 +62,6 @@ public class Ventana extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(900, 640));
         setResizable(false);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
